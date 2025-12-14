@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Header / status -->
+    <TextView
+        android:id="@+id/tvMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select mode:"
+        android:textSize="18sp"
+        android:paddingBottom="8dp"/>
+
+    <!-- Initial choice buttons -->
+    <LinearLayout
+        android:id="@+id/choiceContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnParent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Parent"/>
+
+        <Button
+            android:id="@+id/btnChild"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Child"/>
+    </LinearLayout>
+
+    <!-- Parent UI (hidden initially) -->
+    <LinearLayout
+        android:id="@+id/parentContainer"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:id="@+id/tvParentStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Parent status: idle"/>
+
+        <EditText
+            android:id="@+id/etParentMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type message to broadcast"/>
+
+        <Button
+            android:id="@+id/btnSendParent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"/>
+    </LinearLayout>
+
+    <!-- Child UI (hidden initially) -->
+    <LinearLayout
+        android:id="@+id/childContainer"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:id="@+id/tvChildStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Child status: idle"/>
+
+        <TextView
+            android:id="@+id/tvChildMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No messages yet"
+            android:paddingTop="6dp"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <!-- Shared logs -->
+    <TextView
+        android:id="@+id/tvLogLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logs:"
+        android:paddingTop="12dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textIsSelectable="true"/>
+    </ScrollView>
+
+</LinearLayout>
